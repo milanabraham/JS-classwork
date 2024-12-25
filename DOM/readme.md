@@ -2,4 +2,4 @@ We can view the hosted version of project on my github profile under JS-classwor
 
 Repo Link : https://github.com/milanabraham/JS-classwork
 
-Hosted Link : 
+Hosted Link : https://milanabraham.github.io/JS-classwork/DOM/
