@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modern Sticky Notes</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="sidebar">
+            <div class="note-input">
+                <div class="textarea-container">
+                    <textarea placeholder="Write your note here..."></textarea>
+                </div>
+                <div class="error-message">Please enter some text for your note!</div>
+                <div class="color-picker">
+                    <div class="color-option selected" style="background-color: #FFD93D"></div>
+                    <div class="color-option" style="background-color: #FF8080"></div>
+                    <div class="color-option" style="background-color: #95BDFF"></div>
+                    <div class="color-option" style="background-color: #B4FF9F"></div>
+                    <div class="color-option" style="background-color: #FFA1CF"></div>
+                    <div class="color-option" style="background-color: #CB9FFF"></div>
+                    <input type="color" class="color-option" value="#ffffff" >
+                </div>
+                <button class="add-button">Add Note</button>
+            </div>
+        </div>
+        <div class="notes-container">
+            <div class="empty-state">No notes yet. Start by adding one!</div>
+        </div>
+    </div>
+    <script src="./script.js"></script>
+</body>
+</html>
