@@ -66,37 +66,5 @@ displayEmg.addEventListener("click", (e) => {
     console.log( e.target);
 });
 
-// displayEmg.addEventListener("click", (e) => {
-//   if (e.target.nodeName === "IMG") {
-//     let val = e.target.alt;
-//     navigator.clipboard.writeText(val);
-//     Toastify({
-//       text: "Emojee copied",
-//       className: "info",
-//       close: true,
-//       style: {
-//         background: "linear-gradient(to right, #00b09b, #96c93d)",
-//       },
-//     }).showToast();
-//   }
-// });
 
-// const listOfEmojis = ["😀", "😎", "❤️", "📚", "✋", "⚽", "🚩"]; // Add more emojis as needed
-
-// const randomEmojiGenerator = () => {
-//     let randomIndex = Math.floor(Math.random() * listOfEmojis.length);
-//     let randomEmoji = listOfEmojis[randomIndex];
-//     let randomEmojiElement = document.getElementById("random-emogi");
-
-//     if (randomEmojiElement) {
-//         // Update the alt attribute for accessibility
-//         randomEmojiElement.alt = randomEmoji;
-//         // Update the source for the image element
-//         randomEmojiElement.src = `path-to-your-emoji-images/${randomEmoji}.png`;
-
-//         setTimeout(randomEmojiGenerator, 3000);
-//     }
-// };
-
-// randomEmojiGenerator();
 
