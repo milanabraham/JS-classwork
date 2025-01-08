@@ -65,6 +65,9 @@ displayEmg.addEventListener("click", (e) => {
      alert("Copied to clipboard");
     console.log( e.target);
 });
+<<<<<<< HEAD
 
 
 
+=======
+>>>>>>> 71ae2a40e0ad9ee831b711fd43becf0bd778f42e
