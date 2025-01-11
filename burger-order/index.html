@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Burger Order Generator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>🍔 Food Order</h1>
+        <div id="foodItems">
+            <div class="food-option">
+                <input type="checkbox" id="burger" name="foodItem" value="Burger" />
+                <label for="burger">
+                    <span class="food-icon">🍔</span>
+                    <span>Burger</span>
+                </label>
+            </div>
+            <div class="food-option">
+                <input type="checkbox" id="fries" name="foodItem" value="Fries" />
+                <label for="fries">
+                    <span class="food-icon">🍟</span>
+                    <span>Fries</span>
+                </label>
+            </div>
+            <div class="food-option">
+                <input type="checkbox" id="drink" name="foodItem" value="Drink" />
+                <label for="drink">
+                    <span class="food-icon">🥤</span>
+                    <span>Drink</span>
+                </label>
+            </div>
+        </div>
+        <button id="orderButton">Place Order</button>
+        <div class="loading" id="loading"></div>
+        <img id="foodImage" src="" alt="Food" />
+        <div id="orderId">Order ID: <span id="orderIdValue"></span></div>
+    </div>
+    <script src="./script.js"></script>
+</body>
+</html>
