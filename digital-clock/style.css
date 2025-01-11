@@ -1,0 +1,49 @@
+body {
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(135deg, #1e2126 0%, #2b3038 100%);
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background-image: url("https://picsum.photos/1800/1800");
+}
+
+.clock-container {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 2rem 3rem;
+    border-radius: 20px;
+    box-shadow: 0 15px 25px rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.clock {
+    font-size: 5rem;
+    font-weight: 600;
+    color: #ffffff;
+    text-shadow: 0 0 20px rgba(10, 175, 230, 0.3);
+    font-family: 'Roboto Mono', monospace;
+    letter-spacing: 4px;
+}
+
+.date {
+    text-align: center;
+    color: #ffffff;
+    font-size: 1.2rem;
+    margin-top: 1rem;
+    letter-spacing: 2px;
+}
+
+.seconds {
+    color: #0aafe6;
+}
+
+.meridiem {
+    font-size: 1.5rem;
+    margin-left: 10px;
+    color: #0aafe6;
+}
+
+
+
