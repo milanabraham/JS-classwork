@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <title>PokéDex</title>
+</head>
+<body>
+    <div class="content-wrapper">
+        <header>
+            <h1>PokéDex</h1>
+        </header>
+        <main>
+            <div class="search-container">
+                <div class="search-box">
+                    <input type="text" id="pokemon-search-input" placeholder="Search Pokémon...">
+                    <i class="fas fa-search"></i>
+                </div>
+                <div class="filter-container">
+                    <select class="type-filter" name="type">
+                        <option value="">All Types</option>
+                    </select>
+                    <button onclick="window.location.reload()">
+                        <i class="fas fa-sync-alt"></i> Reset
+                    </button>
+                </div>
+            </div>
+            <section id="pokedex"></section>
+        </main>
+    </div>
+    <script src="./script.js"></script>
+</body>
+</html>

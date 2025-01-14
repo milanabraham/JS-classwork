@@ -1,0 +1,226 @@
+
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            min-height: 100vh;
+        }
+
+        .content-wrapper {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            text-align: center;
+            padding: 2rem 0;
+        }
+
+        h1 {
+            font-size: 3.5rem;
+            color: #2d3436;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+            margin-bottom: 1rem;
+        }
+
+        .search-container {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .search-box {
+            position: relative;
+            width: 300px;
+        }
+
+        .search-box input {
+            width: 100%;
+            padding: 12px 45px 12px 15px;
+            border: none;
+            border-radius: 25px;
+            background: white;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .search-box input:focus {
+            outline: none;
+            box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+        }
+
+        .search-box i {
+            position: absolute;
+            right: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #777;
+        }
+
+        .filter-container {
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+        }
+
+        select.type-filter {
+            padding: 12px 30px;
+            border: none;
+            border-radius: 25px;
+            background: white;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        select.type-filter:focus {
+            outline: none;
+            box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+        }
+
+        button {
+            padding: 12px 25px;
+            border: none;
+            border-radius: 25px;
+            background: #00b894;
+            color: white;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        button:hover {
+            background: #00a187;
+            transform: translateY(-2px);
+        }
+
+        #pokedex {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 2rem;
+            padding: 2rem 0;
+        }
+
+        .flip-card {
+            perspective: 1000px;
+            height: 350px;
+        }
+
+        .flip-card-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            transition: transform 0.8s;
+            transform-style: preserve-3d;
+            cursor: pointer;
+        }
+
+        .flip-card:hover .flip-card-inner {
+            transform: rotateY(180deg);
+        }
+
+        .front-pokemon-card,
+        .back-pokemon-card {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            border-radius: 15px;
+            background: white;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+            padding: 1.5rem;
+        }
+
+        .back-pokemon-card {
+            transform: rotateY(180deg);
+            background: linear-gradient(45deg, #fff 0%, #f7f7f7 100%);
+        }
+
+        .front-pokemon-image {
+            width: 150px;
+            height: 150px;
+            margin: 0 auto;
+            display: block;
+        }
+
+        .front-poke-id {
+            position: absolute;
+            top: 1rem;
+            left: 1rem;
+            background: rgba(0, 0, 0, 0.1);
+            padding: 0.3rem 0.8rem;
+            border-radius: 15px;
+            font-size: 0.9rem;
+        }
+
+        .front-pokemon-type {
+            display: inline-block;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            text-transform: uppercase;
+            margin-top: 1rem;
+        }
+
+        .back-pokemon-abilities {
+            margin-top: 1rem;
+            font-size: 0.9rem;
+            line-height: 1.6;
+        }
+
+        /* Type Colors */
+        #grass { background-color: rgba(155, 204, 80, 0.9); }
+        #fire { background-color: rgba(253, 125, 36, 0.9); }
+        #water { background-color: rgba(69, 146, 196, 0.9); }
+        #bug { background-color: rgba(114, 159, 63, 0.9); }
+        #normal { background-color: rgba(164, 172, 175, 0.9); }
+        #poison { background-color: rgba(185, 127, 201, 0.9); }
+        #electric { background-color: rgba(238, 213, 53, 0.9); }
+        #ground { background-color: rgba(247, 222, 63, 0.9); }
+        #fairy { background-color: rgba(253, 185, 233, 0.9); }
+        #fighting { background-color: rgba(213, 103, 35, 0.9); }
+        #psychic { background-color: rgba(243, 102, 185, 0.9); }
+        #rock { background-color: rgba(163, 140, 33, 0.9); }
+        #ghost { background-color: rgba(123, 98, 163, 0.9); }
+        #ice { background-color: rgba(81, 196, 231, 0.9); }
+        #dragon { background-color: rgba(218, 165, 32, 0.9); }
+
+        @media (max-width: 768px) {
+            .content-wrapper {
+                padding: 10px;
+            }
+            
+            h1 {
+                font-size: 2.5rem;
+            }
+            
+            .search-container {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .search-box {
+                width: 100%;
+                max-width: 300px;
+            }
+            
+            #pokedex {
+                grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+                gap: 1rem;
+            }
+        }
+    
