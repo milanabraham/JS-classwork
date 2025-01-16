@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Auto-Save Editor</title>    
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Auto-Save Editor</h1>
+            <div class="status" id="saveStatus">
+                <div class="status-dot"></div>
+                <span>All changes saved</span>
+            </div>
+        </div>
+        <div class="editor-container">
+            <textarea id="editor" placeholder="Start typing here..."></textarea>
+        </div>
+        <div class="stats">
+            <span id="wordCount">0 words</span>
+            <span id="charCount">0 characters</span>
+        </div>
+
+    </div>
+
+    
+    <script src="./script.js"></script>
+</body>
+</html>
