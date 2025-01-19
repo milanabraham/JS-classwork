@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Nested Comments</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1 class="title">Discussion</h1>
+            <button id="reset">Reset Comments</button>
+        </div>
+        
+        <div id="commentContainer">
+            <div class="sub-comments"></div>
+        </div>
+    </div>
+
+    <template id="comment-template">
+        <div class="comment-wrapper">
+            <div class="main-comment">
+                <div class="comment-header">
+                    <img src="https://icon-library.com/images/anonymous-icon/anonymous-icon-28.jpg" 
+                         alt="profile" 
+                         class="profile-pic" 
+                         loading="lazy" />
+                    <input type="text" class="username-input hide" placeholder="Enter your username" />
+                    <div class="user-info hide">
+                        <span class="username"></span>
+                    </div>
+                </div>
+                
+                <div class="comment-text" contenteditable="false"></div>
+                
+                <div class="comment-actions">
+                    <button class="action-button reply hide">Reply</button>
+                    <button class="action-button edit hide">Edit</button>
+                    <button class="action-button delete hide">Delete</button>
+                    <button class="action-button submit hide">Post</button>
+                    <button class="action-button cancel hide">Cancel</button>
+                </div>
+            </div>
+            <div class="sub-comments"></div>
+        </div>
+    </template>
+    <script src="./script.js"></script>
+</body>
+</html>
