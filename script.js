@@ -159,58 +159,114 @@ function createParticle() {
 
 setInterval(createParticle, 300);
 
-const projectContainer = document.getElementById('project-container');
+const themeToggle = document.getElementById('theme-toggle');
+        const html = document.documentElement;
+        const sunIcon = document.getElementById('sun-icon');
+        const moonIcon = document.getElementById('moon-icon');
 
-projects.forEach((project, index) => {
-    const card = document.createElement('div');
-    card.className = 'card rounded-xl shadow-lg overflow-hidden scroll-appear';
-    card.style.animationDelay = `${index * 200}ms`;
-    
-    const techStack = project.technologies
-        .map(tech => `
-            <span class="tech-tag inline-block rounded-full px-4 py-1 text-sm font-semibold text-indigo-700 mr-2 mb-2">
-                ${tech}
-            </span>
-        `).join('');
-    
-    card.innerHTML = `
-        <div class="p-8">
-            <h3 class="text-2xl font-bold text-gray-800 mb-4">${project.title}</h3>
-            <p class="text-gray-600 mb-6 leading-relaxed">${project.description}</p>
-            <div class="mb-6 flex flex-wrap">
-                ${techStack}
-            </div>
-        </div>
-        <div class="px-8 py-4 bg-gray-50 border-t border-gray-100">
-            <div class="flex justify-between items-center">
-                <a href="${project.demo}" target="_blank" 
-                   class="btn bg-indigo-600 text-white px-6 py-2 rounded-lg hover:bg-indigo-700 transform hover:scale-105">
-                    View Demo
-                </a>
-                <a href="${project.repository}" target="_blank" 
-                   class="btn border-2 border-indigo-600 text-indigo-600 px-6 py-2 rounded-lg hover:bg-indigo-50 transform hover:scale-105">
-                    GitHub
-                </a>
-            </div>
-        </div>
-    `;
-    
-    projectContainer.appendChild(card);
-});
-
-// Scroll animation
-const observerOptions = {
-    threshold: 0.1
-};
-
-const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            entry.target.classList.add('visible');
+        // Check for saved theme preference
+        const savedTheme = localStorage.getItem('theme');
+        if (savedTheme) {
+            html.classList.add(savedTheme);
+            updateThemeIcons(savedTheme === 'dark');
         }
-    });
-}, observerOptions);
 
-document.querySelectorAll('.scroll-appear').forEach(element => {
-    observer.observe(element);
-});
+        function updateThemeIcons(isDark) {
+            sunIcon.classList.toggle('hidden', !isDark);
+            moonIcon.classList.toggle('hidden', isDark);
+        }
+
+        themeToggle.addEventListener('click', () => {
+            const isDark = html.classList.toggle('dark');
+            localStorage.setItem('theme', isDark ? 'dark' : 'light');
+            updateThemeIcons(isDark);
+        });
+
+        // Search Functionality
+        const searchInput = document.getElementById('search-input');
+        const noResults = document.getElementById('no-results');
+
+        function filterProjects(searchTerm) {
+            const term = searchTerm.toLowerCase();
+            let hasResults = false;
+
+            projects.forEach((project, index) => {
+                const card = document.querySelector(`[data-index="${index}"]`);
+                const matchesSearch = 
+                    project.title.toLowerCase().includes(term) ||
+                    project.description.toLowerCase().includes(term) ||
+                    project.technologies.some(tech => tech.toLowerCase().includes(term));
+
+                if (matchesSearch) {
+                    card.style.display = 'block';
+                    hasResults = true;
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+
+            noResults.style.display = hasResults ? 'none' : 'block';
+        }
+
+        searchInput.addEventListener('input', (e) => {
+            filterProjects(e.target.value);
+        });
+
+        // Modified project rendering to include data-index
+        const projectContainer = document.getElementById('project-container');
+        
+        projects.forEach((project, index) => {
+            const card = document.createElement('div');
+            card.className = 'card rounded-xl shadow-lg overflow-hidden scroll-appear dark:shadow-gray-800';
+            card.setAttribute('data-index', index);
+            card.style.animationDelay = `${index * 200}ms`;
+            
+            const techStack = project.technologies
+                .map(tech => `
+                    <span class="tech-tag inline-block rounded-full px-4 py-1 text-sm font-semibold mr-2 mb-2">
+                        ${tech}
+                    </span>
+                `).join('');
+            
+            card.innerHTML = `
+                <div class="p-8">
+                    <h3 class="text-2xl font-bold mb-4">${project.title}</h3>
+                    <p class="mb-6 leading-relaxed">${project.description}</p>
+                    <div class="mb-6 flex flex-wrap">
+                        ${techStack}
+                    </div>
+                </div>
+                <div class="px-8 py-4 bg-gray-50 dark:bg-gray-800 border-t border-gray-100 dark:border-gray-700">
+                    <div class="flex justify-between items-center">
+                        <a href="${project.demo}" target="_blank" 
+                           class="btn bg-indigo-600 text-white px-6 py-2 rounded-lg hover:bg-indigo-700 transform hover:scale-105">
+                            View Demo
+                        </a>
+                        <a href="${project.repository}" target="_blank" 
+                           class="btn border-2 border-indigo-600 text-indigo-600 dark:text-indigo-400 px-6 py-2 rounded-lg hover:bg-indigo-50 dark:hover:bg-gray-700 transform hover:scale-105">
+                            GitHub
+                        </a>
+                    </div>
+                </div>
+            `;
+            
+            projectContainer.appendChild(card);
+        });
+
+        // Your existing scroll animation code
+        const observerOptions = {
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.scroll-appear').forEach(element => {
+            observer.observe(element);
+        });
+
